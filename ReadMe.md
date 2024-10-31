@@ -1,5 +1,5 @@
 # Mid Central Programming Contest 2024 Practice Problems
-This repo is a space for me to use the problems of previous contests as practice problems.
+This repo is a space for me practice for the upcoming 2024 Mid Central Programming Contest using problems from previous competitions. 
 
 ## Practice problems completed:
 
