@@ -19,6 +19,23 @@ Output a single ASCII character, which is the average of all of the ASCII charac
 using namespace std;
 
 int main() {
-  cout << "Hello World!";
+
+  // Get Input
+  string input;
+  cout << "Please enter a string of characters.\n";
+  cin >> input;
+
+
+  // Average the conversion
+  int total = 0;
+  for (int i = 0; i < size(input); i++){
+    total += int(input[i]);
+  }
+  total /= size(input);
+
+
+  // Print Average
+  cout << "Average character: "<< char(total) << "\n";
+
   return 0;
 } 
