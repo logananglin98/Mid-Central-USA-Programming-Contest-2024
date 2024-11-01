@@ -9,5 +9,5 @@ Average Character
 Black and White  
 
 ## 2022 practice problems
-Link to all 2022 problems: https://mcpc22.kattis.com/contests/mcpc22/problems/blueberrywaffle
+Link to all 2022 problems: https://mcpc22.kattis.com/contests/mcpc22/problems/blueberrywaffle  
 Blueberry Waffle
