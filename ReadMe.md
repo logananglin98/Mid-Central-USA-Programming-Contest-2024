@@ -8,6 +8,6 @@ Link to all 2021 problems: https://mcpc21.kattis.com/contests/mcpc21/problems
 Average Character  
 Black and White  
 
-## 2022 practice problems
+### 2022 practice problems
 Link to all 2022 problems: https://mcpc22.kattis.com/contests/mcpc22/problems/blueberrywaffle  
 Blueberry Waffle
