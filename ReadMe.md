@@ -6,4 +6,8 @@ This repo is a space for me practice for the upcoming 2024 Mid Central Programmi
 ### 2021 practice problems
 Link to all 2021 problems: https://mcpc21.kattis.com/contests/mcpc21/problems  
 Average Character  
-Black and White
+Black and White  
+
+## 2022 practice problems
+Link to all 2022 problems: https://mcpc22.kattis.com/contests/mcpc22/problems/blueberrywaffle
+Blueberry Waffle
