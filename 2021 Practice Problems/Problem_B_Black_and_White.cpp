@@ -36,7 +36,6 @@ int main() {
 
 
     // Math for estimating the number of rounds
-    // Math for estimating the number of rounds
     double expectedRounds = 0.0;
     int n = children;
     while (n > 2) {

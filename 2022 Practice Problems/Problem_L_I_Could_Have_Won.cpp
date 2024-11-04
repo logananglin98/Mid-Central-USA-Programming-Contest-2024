@@ -31,6 +31,51 @@ on the next line output all such values of in increasing order, separated by spa
 #include <iostream>
 using namespace std;
 
+class RockPaperScissorsMarathon {
+private:
+    string progression;
+    int alice_games_won = 0;
+    int bob_games_won = 0;
+    int first_to_rules_for_alice[4]; // Because there can only be 9 rounds, four is the most a player can get before they automatically lose
+    int array_index = 0; // For selecting index in first_to_rules_for_alice[4] array
+
+public: 
+    RockPaperScissorsMarathon(string rounds) {
+        /* Creates the marathon. Input will be a string of As and Bs representing which rounds were won by Alice and Bob. */
+        progression = rounds;
+    }
+
+    void calculateFirstToRules() {
+        /* After construction, this method goes through the progression string and determines which first-to rules would result in a win by Alice. */
+        first_to_rules_for_alice[0] = -1;
+        for ( int i = 0; i < progression.length(); i++ ) {
+            if ( progression[i] == 'A' ) {
+                alice_games_won++;
+            } else {
+                bob_games_won++;
+            }
+            if ( alice_games_won > 1 && alice_games_won > bob_games_won && first_to_rules_for_alice[array_index - 1] != alice_games_won) {
+                first_to_rules_for_alice[array_index] = alice_games_won;
+                array_index++;
+            }
+        }
+    }
+
+    int getK(int index) {
+        /* Returns k values, which represent what first-to rules would result in Alice winning. */
+        if (first_to_rules_for_alice[0] != -1) {
+            return first_to_rules_for_alice[index];
+        } else {
+            return 0;
+        }
+    }
+
+    int getArrayIndex() {
+        /* Returns how many first-to rules would result in Alice winning. Only works if calculateFirstToRules has ran first. */
+        return array_index;
+    } 
+};
+
 int main() {
     // input a string of As and Bs for how each round will play out between 1 and 2000
     string round_scores = "";
@@ -39,36 +84,25 @@ int main() {
         cout << "Enter a number of As and Bs. Each A will represent a score by Alice. Each B will represent a score by Bob.\n";
         cin >> round_scores;
     }
+    RockPaperScissorsMarathon game(round_scores);
 
 
     // calculate the scores to reach so that Alice will win less than 10
-    int alice_games_won = 0;
-    int bob_games_won = 0;
-    int first_to_rules_for_alice[4]; // Because there can only be 9 rounds, four is the most a player can get before they automatically lose
-    int array_index = 0; // For selecting index in first_to_rules_for_alice[4] array
-
-    for ( int i = 0; i < round_scores.length(); i++ ) {
-        if ( round_scores[i] == 'A' ) {
-            alice_games_won++;
-        } else {
-            bob_games_won++;
-        }
-        if ( alice_games_won > 1 && alice_games_won > bob_games_won && first_to_rules_for_alice[array_index - 1] != alice_games_won) {
-            first_to_rules_for_alice[array_index] = alice_games_won;
-            array_index++;
-        }
-    }
+    game.calculateFirstToRules();
 
 
-    // output the smallest number for the first-to-k rule that would result in Alice winning
+    // // output the smallest number for the first-to-k rule that would result in Alice winning
     cout << "Lowest possible first-to rule: ";
-    cout << first_to_rules_for_alice[0] << "\n";
+    cout << game.getK(0) << "\n";
 
     // output all first-to-k rules that would result in alice winning
     cout << "All possible forst-to rules less than 10: ";
-    for (int i = 0; i < array_index; i++) {
-        cout << first_to_rules_for_alice[i];
-        cout << " ";
+    int k_rules_length = game.getArrayIndex();
+    for (int i = 0; i < k_rules_length; i++) {
+        cout << game.getK(i);
+        if (i < k_rules_length - 1) {
+            cout << " ";
+        }        
     }
     cout << "\n";
 }
