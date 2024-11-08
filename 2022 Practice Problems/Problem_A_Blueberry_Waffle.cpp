@@ -14,20 +14,31 @@ of the waffle is up or down after the cooking pan returns to a horizontal positi
 */
 
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 int main() {
     // input for the number of seconds the pan takes to spin 180 degrees and the number of seconds the pan is rotating before it stops and rotates to the closest side. 
 
+    std::ifstream file("Problem_A_input.txt");
+
+    string line;
+
     int r = 0;
     int f = 0;
 
-    while (r <= 1 && f <= 100000) {
-        cout << "Please enter a number of seconds for the pan to rotate 180 degrees, and the number of seconds the pan will cook for. Separate the two numbers with a space. \n";
-        cin >> r >> f;
+    if (getline(file, line)) {  // Read a line from the file
+        // Find the position of the space between the two numbers
+        size_t spacePos = line.find(' ');
+
+        // Extract and convert the two parts to integers
+        r = stoi(line.substr(0, spacePos));
+        f = stoi(line.substr(spacePos + 1));
     }
-    
+
     cout << "Rotation time: " << r << "  Cook time: " << f << "\n";
+
+    file.close();
 
     // math for calculating if the blueberry side of the waffle will be up or down
     string side;
@@ -37,7 +48,11 @@ int main() {
         side = "down";
     }
 
+    std::ofstream output("Problem_A_output.txt");
+
     // output
-    cout << "The waffle finishes cooking with the blueberry side " << side << ".\n";
+    output << "The waffle finishes cooking with the blueberry side " << side << ".";
+
+    output.close();
     return 0;
 }
