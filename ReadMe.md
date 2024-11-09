@@ -17,4 +17,6 @@ I Could Have Won
 ## 2023 practice problems
 Link to all 2023 problems: https://mcpc23.kattis.com/contests/mcpc23/problems  
 Triple Sevens  
+Training  
+> Done with Python  
 

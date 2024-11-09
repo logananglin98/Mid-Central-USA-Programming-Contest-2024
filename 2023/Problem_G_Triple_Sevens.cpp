@@ -30,9 +30,13 @@ int main() {
         }
     }
 
+    file.close();
+
     std::ofstream output("Problem_G_output.txt");
 
     output << o;
+
+    output.close();
 
     return 0;
 }
